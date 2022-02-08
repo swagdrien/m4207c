@@ -24,14 +24,15 @@ class ServeurController extends AbstractController
      */
     public function traitement(Request $request): Response
     {
-        $pseudo = $request -> request -> get("pseudo") ;
+        $pseudo = $request -> request -> get("login") ;
         $pass = $request -> request -> get("pass") ;
         $message="coucou";
 
     
         return $this->render('serveur/traitement.html.twig', [
             'controller_name' => $message,
-            'pseudo' => $pseudo,
+            'login' => $pseudo,
+            'pass' => $pass
                
         ]);
     }
