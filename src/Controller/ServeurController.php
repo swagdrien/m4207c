@@ -26,14 +26,19 @@ class ServeurController extends AbstractController
     {
         $pseudo = $request -> request -> get("login") ;
         $pass = $request -> request -> get("pass") ;
-        $message="coucou";
+        if (($pseudo == 'admin')&&($pass =='admin')){
+            $message="valide";
+        }
 
     
+        else {
+        $message="ERREUR";
+        }
         return $this->render('serveur/traitement.html.twig', [
-            'controller_name' => $message,
-            'login' => $pseudo,
-            'pass' => $pass
-               
+        'message' => $message,
+        'login' => $pseudo,
+        'pass' => $pass,
         ]);
     }
-}
+} 
+
