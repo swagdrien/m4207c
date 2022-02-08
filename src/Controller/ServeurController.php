@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\NomClasseTable;
 
 class ServeurController extends AbstractController
 {
@@ -22,7 +24,7 @@ class ServeurController extends AbstractController
     /**
      * @Route("/traitement", name="traitement")
      */
-    public function traitement(Request $request): Response
+    public function traitement(Request $request, EntityManagerInterface $manager): Response
     {
         $pseudo = $request -> request -> get("login") ;
         $pass = $request -> request -> get("pass") ;
